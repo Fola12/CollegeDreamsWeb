@@ -14,18 +14,15 @@ import {ChangePasswordComponent} from './shared/components/change-password/chang
 import {ClientTypesComponent} from './admin/client-types/client-types.component';
 import {ManageClientsComponent} from './admin/manage-clients/manage-clients.component';
 import {ManageClientDocumentsComponent} from './admin/manage-client-documents/manage-client-documents.component';
-
+import {ProfilesComponent} from "./admin/profiles/profiles.component";
 
 const landingRoutes: Routes = [
   {path: '', component: LoginComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'reset-password/:token', component: ResetPasswordComponent},
-
   {path: 'client', loadChildren: () => import('./shared/modules/user/user.module').then(m => m.UserModule)},
-
   {path: 'admin', loadChildren: () => import('./shared/modules/admin/admin.module').then(m => m.AdminModule)},
-
   {path: '**', component: LoginComponent},
 ];
 
@@ -67,6 +64,7 @@ export const adminRoutes: Routes = [
     {path: 'dashboard', component: AdminDashboardComponent, canActivate: [GuardService, RoleServiceAdmin], data: {roles: 'ADMIN'}},
     {path: 'client-types', component: ClientTypesComponent, canActivate: [GuardService, RoleServiceAdmin], data: {roles: 'ADMIN'}},
     {path: 'manage-clients', component: ManageClientsComponent, canActivate: [GuardService, RoleServiceAdmin], data: {roles: 'ADMIN'}},
+    {path: 'profiles', component: ProfilesComponent, canActivate: [GuardService, RoleServiceAdmin], data: {roles: 'ADMIN'}},
     {path: 'client/:clientId/manage-documents', component: ManageClientDocumentsComponent, canActivate: [GuardService, RoleServiceAdmin],
       data: {roles: 'ADMIN'}},
     {path: 'change-password', component: ChangePasswordComponent, canActivate: [GuardService, RoleServiceAdmin], data: {roles: 'ADMIN'}},
@@ -82,6 +80,7 @@ export const adminRouting: IRouting = {
     AdminDashboardComponent,
     ClientTypesComponent,
     ManageClientsComponent,
+    ProfilesComponent,
     ManageClientDocumentsComponent
   ],
   entryComponent: [],

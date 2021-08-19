@@ -1,5 +1,5 @@
 /**
- * Create by Arokoyu Olalekan<olalekan.arokoyu@upperlink.ng>
+ * Created by Iruobe Akhigbe<iruobeakhigbe@gmail.com>
  */
 export interface IResponse {
   data?: any;

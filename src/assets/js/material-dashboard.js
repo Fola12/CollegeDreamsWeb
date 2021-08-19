@@ -40,7 +40,7 @@ let seq2 = 0,
 
 $(document).ready(() => {
   setTimeout(() => {
-     // console.log('Welcome to Lekens world');
+     // console.log('Welcome to Ayomide's world');
 
   const sidebar = $('.sidebar');
     let window_width = $(window).width();
@@ -435,7 +435,7 @@ let md = {
           bottom: 0,
           left: 0
         },
-      }
+      };
 
       let dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
 
@@ -464,7 +464,7 @@ let md = {
           bottom: 0,
           left: 0
         }
-      }
+      };
 
       let completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
@@ -835,12 +835,7 @@ function debounce(func, wait, immediate) {
     }, wait);
     if (immediate && !timeout) func.apply(context, args);
   };
-};
-
-
-
-
-
+}
 const sidebar_img_container = sidebar.find('.sidebar-background');
 
 const full_page = $('.full-page');

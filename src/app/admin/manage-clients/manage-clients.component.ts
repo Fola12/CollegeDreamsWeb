@@ -24,8 +24,8 @@ export class ManageClientsComponent implements OnInit {
   };
   private updateMode: any;
   public createdDisplay = {
-    title: 'Create new client',
-    btnTxt: 'Save client'
+    title: 'Create New Client',
+    btnTxt: 'Save Client'
   };
   constructor(private eventService: EventsService, private userService: UserService,
               private utilService: UtilService,
@@ -42,6 +42,7 @@ export class ManageClientsComponent implements OnInit {
     this.loadingTable  = true;
     this.userService.getClients().subscribe((res: IResponse) => {
       this.clients =  res.data.data;
+      console.log('Response_data', res.data.data);
       this.loadingTable = false;
       this.utilService.startDatatable('listClients');
     }, error => {
