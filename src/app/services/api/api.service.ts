@@ -53,7 +53,23 @@ export class ApiService extends RestfulHttpService {
       return res;
     }
   }
-
+  // in case of getUsersCount: this will art as an interceptor to store the token return and possible login user data
+  /*private userDecode(res: any, getUsers?: string | null) {
+    const data = res;
+    if (res) {
+      console.log('res', res, getUsers);
+      if (getUsers && getUsers.match('user')) {
+        localStorage.setItem(env.USERCOUNT, JSON.stringify(data));
+        console.log('User Data', data);
+        // localStorage.setItem(env.USERCOUNT, JSON.stringify(data));
+        /!*sessionStorage.setItem(env.TOKEN_DATE, JSON.stringify(data.tokenExpiry));
+        sessionStorage.setItem(env.DATE_NOW, JSON.stringify(new Date().toISOString())); *!/
+      }
+      return res;
+    } else {
+      return res;
+    }
+  }*/
   // handles all delete api request
   public deleteRequest(api: string, path: string, data?: any): Observable<any> {
     let ENDPOINT = `${env.API_URL}/${api}`;

@@ -1,5 +1,5 @@
 /**
- * Created by Arokoyu Olalekan Ojo
+ * Created by Iruobe Akhigbe Ayomide
  */
 
 import {Injectable} from '@angular/core';
@@ -49,22 +49,8 @@ export class UserService {
       })
     );
   }
-  getClientTypes(): Observable<IResponse> {
-    return this.api.getRequest('admin', 'client_type').pipe(
-      map((res: IResponse) => {
-        return res;
-      })
-    );
-  }
   getClients(): Observable<IResponse> {
     return this.api.getRequest('admin', 'client').pipe(
-      map((res: IResponse) => {
-        return res;
-      })
-    );
-  }
-  createClientType(data: object): Observable<IResponse> {
-    return this.api.postRequest('admin', 'client_type', data).pipe(
       map((res: IResponse) => {
         return res;
       })
@@ -77,13 +63,6 @@ export class UserService {
       })
     );
   }
-  updateClientType(data: object, id: string): Observable<IResponse> {
-    return this.api.putRequest('admin', 'client_type/' + id, data).pipe(
-      map((res: IResponse) => {
-        return res;
-      })
-    );
-  }
   updateClient(data: object, id: string): Observable<IResponse> {
     return this.api.putRequest('admin', 'client/' + id, data).pipe(
       map((res: IResponse) => {
@@ -91,6 +70,30 @@ export class UserService {
       })
     );
   }
+  getClientTypes(): Observable<IResponse> {
+    return this.api.getRequest('admin', 'client_type').pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  createClientType(data: object): Observable<IResponse> {
+    return this.api.postRequest('admin', 'client_type', data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  updateClientType(data: object, id: string): Observable<IResponse> {
+    return this.api.putRequest('admin', 'client_type/' + id, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
+
   deleteClientType(id: string): Observable<IResponse> {
     return this.api.deleteRequest('admin', 'client_type/' + id).pipe(
       map((res: IResponse) => {
