@@ -1,4 +1,10 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
+
+/**
+ * Created by Iruobe Akhigbe<iruobeakhigbe@gmail.com>
+**/
+
+
 {
   "compileOnSave": false,
   "compilerOptions": {

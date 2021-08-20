@@ -1,3 +1,7 @@
+/**
+ * Created by Iruobe Akhigbe<iruobeakhigbe@gmail.com>
+**/
+
 {
   "extends": "tslint:recommended",
   "rulesDirectory": [
