@@ -1,0 +1,17 @@
+.diff{
+  /*position: absolute;*/
+  width: 382px;
+  height: 13px;
+  left: 3px;
+  top: 15px;
+  /*font-family: Poppins;*/
+  font-style: normal;
+  font-weight: 200;
+  font-size: 28px;
+  line-height: 52px;
+  /* identical to box height */
+}
+
+span{
+  color: #5295F5;
+}

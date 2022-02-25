@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavigatorService} from "../../../../services/navigatorService/navigator.service";
 
 @Component({
   selector: 'app-l-footer',
@@ -8,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class LFooterComponent implements OnInit {
 
   public year = new Date().getFullYear();
-  constructor() { }
+
+  openHome() {
+    this.navigationService.navigateUrl("/login");
+  }
+  constructor(private navigationService: NavigatorService) { }
 
   ngOnInit(): void {
   }

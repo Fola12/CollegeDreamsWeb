@@ -16,23 +16,24 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   public userRole: any;
 
   static updateActiveBar(url: string) {
-   setTimeout(() => {
-     let oldUrl;
-     oldUrl = 'dashboard';
-     $('.nav-item').removeClass('active');
-     $(`#${url}`).addClass('active');
-     if ($(`#${url}`).hasClass('active')) {
-       oldUrl = url;
-     } else {
-       $(`#${oldUrl}`).addClass('active');
-     }
-   }, 500);
+    setTimeout(() => {
+      let oldUrl;
+      oldUrl = 'dashboard';
+      $('.nav-item').removeClass('active');
+      $(`#${url}`).addClass('active');
+      if ($(`#${url}`).hasClass('active')) {
+        oldUrl = url;
+      } else {
+        $(`#${oldUrl}`).addClass('active');
+      }
+    }, 500);
   }
 
   constructor(private route: Router, private navigationService: NavigatorService, private authService: AuthService) { }
 
   ngOnInit() {
     this.currentUser = this.authService.getUserDetails();
+    console.log('CurrentUser', this.currentUser);
     this.userRole = this.authService.getUserRole();
   }
   openPage(url: string) {

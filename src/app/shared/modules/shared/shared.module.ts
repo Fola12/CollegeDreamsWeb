@@ -15,14 +15,24 @@ import {FooterComponent} from '../../layout/dashboard/footer/footer.component';
 import {HeaderComponent} from '../../layout/dashboard/header/header.component';
 import {NotificationService} from '../../../services/notificationServices/notification.service';
 import {NgSelectModule} from '@ng-select/ng-select';
+import { ProfilesResuableComponent} from "../../components/profiles-resuable/profiles-resuable.component";
 
+import {MatDividerModule} from "@angular/material/divider";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatMenuModule} from "@angular/material/menu";
+import {HighchartsChartModule} from "highcharts-angular";
+import {MatCardModule} from "@angular/material/card";
+import { NgOtpInputModule } from  'ng-otp-input';
 @NgModule({
   declarations: [
     NotifyComponent,
     SidebarComponent,
     FooterComponent,
     ChangePasswordComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfilesResuableComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +40,14 @@ import {NgSelectModule} from '@ng-select/ng-select';
     NgSelectModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatMenuModule,
+    HighchartsChartModule,
+    MatCardModule,
+    NgOtpInputModule
   ],
   providers: [
     EventsService,
@@ -49,7 +67,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
     ChangePasswordComponent,
     NgSelectModule,
     ReactiveFormsModule,
-    HeaderComponent
+    HeaderComponent,
+    ProfilesResuableComponent
     ]
 })
 export class SharedModule { }

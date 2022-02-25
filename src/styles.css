@@ -5,13 +5,14 @@
 @import "~balloon-css/balloon.css";
 @import "~font-awesome/css/font-awesome.min.css";
 @import "~@ng-select/ng-select/themes/material.theme.css";
+
 @import "assets/css/material-dashboard.css";
 @import "~sweetalert2/dist/sweetalert2.min.css";
 
 @import "assets/css/notify.css";
 
 ::-webkit-scrollbar {
-  width: 10px
+  width: 9px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -63,3 +64,6 @@ td::before {
   float: right;
   text-align: right
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, ElementRef, ViewChild} from '@angular/core';
 declare const $: any;
 
 @Component({
   selector: 'app-root',
-  template: `<app-notify-new></app-notify-new><router-outlet></router-outlet>`,
+  template: `<div #topScrollAnchor></div><app-notify-new></app-notify-new><router-outlet (activate)="onNavigate($event)"></router-outlet>`,
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 
@@ -20,4 +20,11 @@ export class AppComponent implements OnInit {
     setTimeout(console.info.bind(console, '%cMwareCollegeDreamsWeb', cssRule), 0);
 
   }
+
+  @ViewChild('topScrollAnchor') topScroll: ElementRef;
+
+  onNavigate(event): any {
+    this.topScroll.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
 }

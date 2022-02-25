@@ -1,5 +1,6 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {RouterModule} from "@angular/router";
 
 import {GuardService} from '../../../services/gaurdService/guard.service';
 import {AuthService} from '../../../services/authService/auth.service';
@@ -10,6 +11,7 @@ import {EnsureModuleLoadedOnceGuard} from '../moduleGuard/ensure-module-loaded-o
 @NgModule({
   imports: [
     HttpClientModule,
+    RouterModule
   ],
   providers: [
     GuardService,

@@ -99,7 +99,7 @@ export class ManageClientsComponent implements OnInit {
       this.getClients();
     }, error => {
       this.loading =  false;
-      this.bootstrapNotifyService.error(error.error.message || 'Unable to create client!');
+      this.bootstrapNotifyService.error(error.error.description, error.error.code);
     });
   }
   private updateClient() {
@@ -112,14 +112,14 @@ export class ManageClientsComponent implements OnInit {
       this.getClients();
     }, error => {
       this.loading =  false;
-      this.bootstrapNotifyService.error(error.error.message || 'Unable to update client!');
+      this.bootstrapNotifyService.error(error.error.description, error.error.code);
     });
   }
   private getClientTypes() {
     this.userService.getClientTypes().subscribe((res: IResponse) => {
       this.clientTypes =  res.data.data;
     }, error => {
-      this.bootstrapNotifyService.error(error.error.message || 'Unable to list client types');
+      this.bootstrapNotifyService.error(error.error.description, error.error.code);
     });
   }
   public toggleView() {

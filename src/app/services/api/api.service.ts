@@ -170,6 +170,32 @@ export class ApiService extends RestfulHttpService {
   }
 
   // handles all post api request
+  /*public postRequest(api: string, path: null | string, data: any): Observable<any> {
+    let ENDPOINT = `${env.API_URL}/${api}`;
+
+    if (path && path !== 'login') {
+      ENDPOINT = env.API_URL + '/' + api + '/' + path;
+    } else {
+      ENDPOINT = env.API_URL + '/' + api;
+    }
+
+    return super
+      .post(ENDPOINT, data)
+      .pipe(
+        retryWhen((errors) => {
+          return errors.pipe(
+            mergeMap((err) => this.errorHandler(err)),
+            delay(1000),
+            take(2)
+          );
+        })
+      )
+      .pipe(
+        catchError(this.errorHandler),
+        map((res) => this.decode(res, path))
+      );
+  }*/
+
   public postRequest(api: string, path: null | string, data: any): Observable<any> {
     let ENDPOINT = `${env.API_URL}/${api}`;
     if (path) {

@@ -5,4 +5,5 @@ export class Response implements IResponse {
   code: number;
   status: string;
   msg: string;
+  totalRows: number;
 }

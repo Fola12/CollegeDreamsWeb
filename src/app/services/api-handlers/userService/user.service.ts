@@ -21,6 +21,13 @@ export class UserService {
       })
     );
   }
+
+  /*auth(data: any): Observable<IResponse> {
+    return this.api.postRequest('authenticate', 'login' , data).map((res: IResponse)  => {
+      return res ;
+    });
+  }*/
+
   logout(): Observable<IResponse> {
     return this.api.getRequest('auth', 'logout').pipe(
       map((res: IResponse) => {
@@ -28,6 +35,47 @@ export class UserService {
       })
     );
   }
+
+  signUp(data: any): Observable<IResponse> {
+    return this.api.postRequest('sign-up', null , data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  verifyPassword(data: any): Observable<IResponse> {
+    return this.api.postRequest('verify-password', null , data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  verifyAccount(data: any): Observable<IResponse> {
+    return this.api.postRequest('Auth', 'ConfirmEmail' , data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  emailSubscribe(data: any): Observable<IResponse> {
+    return this.api.postRequest('ConfirmEmail', null , data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
+  docUpload(data: any): Observable<IResponse> {
+    return this.api.postRequest('Auth', 'SchoolRegistration', data).pipe(
+      map((res: IResponse) => {
+        return res;
+      })
+    );
+  }
+
   forgotPassword(data: any): Observable<IResponse> {
     return this.api.postRequest('forgot-password', null , data).pipe(
       map((res: IResponse) => {
@@ -35,6 +83,7 @@ export class UserService {
       })
     );
   }
+
   resetPassword(data: any): Observable<IResponse> {
     return this.api.postRequest('forgot-password', 'reset' , data).pipe(
       map((res: IResponse) => {
@@ -49,6 +98,28 @@ export class UserService {
       })
     );
   }
+
+  getLocations(): Observable<IResponse> {
+    return this.api.getRequest('users', '').pipe( map((res: any) => {
+        return res;
+      })
+    );
+  }
+
+  getSchools(): Observable<IResponse> {
+    return this.api.getRequest('users', '').pipe( map((res: any) => {
+        return res;
+      })
+    );
+  }
+
+  /* getSchools(): Observable<IResponse> {
+    return this.api.getRequest('School', 'GetAll').pipe( map((res: any) => {
+        return res;
+      })
+    );
+  } */
+
   getClients(): Observable<IResponse> {
     return this.api.getRequest('admin', 'client').pipe(
       map((res: IResponse) => {

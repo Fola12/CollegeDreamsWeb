@@ -8,7 +8,9 @@
               <i class="material-icons">assignment</i>
             </div>
             <div class="float-right">
-              <button type="button" (click)="toggleView()" class="btn btn-primary">Create Client<div class="ripple-container"></div></button>
+              <button type="button" (click)="toggleView()" class="btn btn-primary">Create Client
+                <div class="ripple-container"></div>
+              </button>
             </div>
           </div>
           <div class="card-body">
@@ -17,13 +19,13 @@
             </div>
 
 
-
             <div class="material-datatables mt-3">
               <div class="text-center mt-5" *ngIf="loadingTable">
                 <i class="fa fa-spin fa-spinner fa-2x"></i>
               </div>
               <div *ngIf="!loadingTable">
-                <table  id="listClients" class="table table-striped table-no-bordered table-hover text-center" cellspacing="0" width="100%" style="width:100%">
+                <table id="listClients" class="table table-striped table-no-bordered table-hover text-center"
+                       cellspacing="0" width="100%" style="width:100%">
                   <thead>
                   <tr class="">
                     <th class="disabled-sorting no-sort font-weight-bold">S/N</th>
@@ -52,13 +54,21 @@
                     <td>{{client?.email}}</td>
                     <td>{{client?.client_type?.name}}</td>
                     <td class="text-center">
-                      <a href="javascript:void(0)" (click)="editClient(client)" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i><div class="ripple-container"></div></a>
-                      <a href="javascript:void(0)" (click)="viewDocuments(client)" class="btn btn-link btn-primary"><i class="material-icons">dvr</i>&nbsp;View Documents<div class="ripple-container"></div></a>
+                      <a href="javascript:void(0)" (click)="editClient(client)"
+                         class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i>
+                        <div class="ripple-container"></div>
+                      </a>
+                      <a href="javascript:void(0)" (click)="viewDocuments(client)" class="btn btn-link btn-primary"><i
+                        class="material-icons">dvr</i>&nbsp;View Documents
+                        <div class="ripple-container"></div>
+                      </a>
                     </td>
                   </tr>
                   </tbody>
                   <tbody *ngIf="clients.length < 1">
-                  <tr ><td colspan="3">No client available!</td></tr>
+                  <tr>
+                    <td colspan="3">No client available!</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -67,15 +77,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
 
 
     <!--Create client-->
@@ -94,26 +95,33 @@
               </div>
               <div class="form-group bmd-form-group mb-3 mt-3">
                 <label for="first_name" class="">First Name *</label>
-                <input type="text" class="form-control" id="first_name" required name="first_name" [(ngModel)]="client.first_name" [ngModelOptions]="{standalone: true}">
+                <input type="text" class="form-control" id="first_name" required name="first_name"
+                       [(ngModel)]="client.first_name" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group bmd-form-group mb-3">
                 <label for="last_name" class="">Last Name *</label>
-                <input type="text" class="form-control" id="last_name" required name="last_name" [(ngModel)]="client.last_name" [ngModelOptions]="{standalone: true}">
+                <input type="text" class="form-control" id="last_name" required name="last_name"
+                       [(ngModel)]="client.last_name" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group bmd-form-group mb-3">
                 <label for="email" class="">Client Email Address *</label>
-                <input type="email" class="form-control" id="email" [readonly]="updateMode" required name="email" [(ngModel)]="client.email" [ngModelOptions]="{standalone: true}">
+                <input type="email" class="form-control" id="email" [readonly]="updateMode" required name="email"
+                       [(ngModel)]="client.email" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="form-group bmd-form-group mb-3">
                 <!--<label class="">Client Type *</label>-->
-                <ng-select [items]="clientTypes" class="ng-select-form" id="clientType" #clientTypeList [searchable]="false"
+                <ng-select [items]="clientTypes"
+                           class="ng-select-form"
+                           id="clientType" #clientTypeList
+                           [searchable]="false"
                            [notFoundText]="'No matching client type'"
                            placeholder="Select client type"
                            bindLabel="name"
                            bindValue="id"
                            [(ngModel)]="client.client_type_id" [ngModelOptions]="{standalone: true}">
                   <ng-template ng-header-tmp>
-                    <input style="width: 100%; line-height: 24px" type="text" placeholder="Search..." (input)="clientTypeList.filter($event.target.value)"/>
+                    <input style="width: 100%; line-height: 24px" type="text" placeholder="Search..."
+                           (input)="clientTypeList.filter($event.target.value)"/>
                   </ng-template>
                 </ng-select>
               </div>
@@ -122,14 +130,16 @@
               <div class="category form-category">* Required fields</div>
             </div>
             <div class="card-footer ml-auto mr-auto justify-content-center">
-              <button type="submit" class="btn btn-info" [disabled]="!client.first_name || !client.last_name || !client.email || !client.client_type_id || loading">{{createdDisplay?.btnTxt}}
+              <button type="submit" class="btn btn-info"
+                      [disabled]="!client.first_name || !client.last_name || !client.email || !client.client_type_id || loading">
+                {{createdDisplay?.btnTxt}}
                 <i class="fa fa-spin fa-spinner" *ngIf="loading"></i>
                 <div class="ripple-container"></div>
               </button>
               &nbsp;
               <button type="reset" class="btn btn-secondary" (click)="resetForm()">Cancel
-              <div class="ripple-container"></div>
-            </button>
+                <div class="ripple-container"></div>
+              </button>
             </div>
           </form>
         </div>

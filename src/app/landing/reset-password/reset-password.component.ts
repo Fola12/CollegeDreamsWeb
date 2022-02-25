@@ -35,17 +35,18 @@ export class ResetPasswordComponent implements OnInit {
   public resetPassword() {
     if (!this.credentials.password_confirmation || !this.credentials.password) {
       this.bootstrapNotify.info('Provide new password!');
-    } else if (this.credentials.password_confirmation === this.credentials.password) {
+    } else if (this.credentials.password_confirmation !== this.credentials.password) {
       this.bootstrapNotify.info('The two password must match!');
     } else {
             this.loaders.loading = true;
             this.userService.resetPassword(this.credentials).subscribe((response: IResponse) => {
               console.log('Response', response);
               this.loaders.loading = false;
-              this.bootstrapNotify.success(response.message || 'Please proceed to login');
-              this.navigatorService.navigateUrl('/');
+              this.bootstrapNotify.success(response.message || 'You will now proceed to login');
+              this.navigatorService.navigateUrl('/login');
             }, error => {
-              this.bootstrapNotify.error(error.error.message || 'Unable to reset password');
+              // this.bootstrapNotify.error(error.error.message || 'Unable to reset password');
+              this.bootstrapNotify.error(error.error.description, error.error.code);
               this.loaders.loading = false;
               console.info('Error => ', error);
             });

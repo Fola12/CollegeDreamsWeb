@@ -1,16 +1,20 @@
 <div class="wrapper">
 
-<app-sidebar></app-sidebar>
+  <app-user-sidebar></app-user-sidebar>
 
-<div class="main-panel">
-  <app-header class="mb-5"></app-header>
+  <div class="main-panel">
+    <app-header class="mb-5"></app-header>
 
-<div class=""> <div class="" style="margin-top: 8%"> <router-outlet class=""></router-outlet></div></div>
+    <div class="" style="min-height: 68vh">
+      <div class="mt-sm-5" style="margin-top:5%;padding: 0 22px;">
+        <router-outlet class=""></router-outlet>
+      </div>
+    </div>
 
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
 
-</div>
+  </div>
 
 
 </div>
